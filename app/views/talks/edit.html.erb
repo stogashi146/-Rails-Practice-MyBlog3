@@ -1,0 +1,6 @@
+<h1>Edit Talk</h1>
+<%= form_with model: @talk, url: talk_path, local: true do |f| %>
+  <h4>コンテンツ</h4>
+  <%= f.text_field :content %>
+  <%= f.submit "投稿" %>
+<% end %>

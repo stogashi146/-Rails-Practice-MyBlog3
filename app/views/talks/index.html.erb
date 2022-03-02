@@ -1,0 +1,21 @@
+<%= link_to "new talk", new_talk_path %>
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Content</th>
+  </tr>
+  <% @talks.each do |talk| %>
+    <tr>
+      <td><%= talk.user.name %></td>
+      <td><%= link_to talk.content, talk_path(talk) %></td>
+      <% if user_signed_in? %>
+        <% if current_user == talk.user %>
+          <td><%= link_to "edit", edit_talk_path(talk) %></td>
+          <td><%= link_to "destroy", talk_path(talk), method: :delete %></td>
+        <% end %>
+      <% end %>
+    </tr>
+
+
+  <% end %>
+</table>
